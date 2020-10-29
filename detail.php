@@ -1,8 +1,8 @@
 <?php
-
+// echo $_SERVER['REQUEST_URI'];
     if(!isset($_POST))
     {
-        header($_SERVER['server_name']);
+        header((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";);
     }
 
 ?>
