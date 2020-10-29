@@ -1,8 +1,14 @@
 <?php
-// echo $_SERVER['REQUEST_URI'];
-    if(!isset($_POST))
+    $url_bases = explode('/', $_SERVER['REQUEST_URI']);
+    $url_base='';
+    if(count($url_bases) >2)
     {
-        header((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].'/index.php');
+        $url_base='/'.$url_bases[1];
+    }
+    if(empty($_POST))
+    {
+     header("Location: ".(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://".$_SERVER['HTTP_HOST'].$url_base.'/index.php');
+     exit;
     }
 
 ?>
