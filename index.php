@@ -1,10 +1,19 @@
 <?php
-// echo $_SERVER['REQUEST_URI'];
+echo $_SERVER['REQUEST_URI'];
 $url_bases = explode('/', $_SERVER['REQUEST_URI']);
 $url_base='';
 if(count($url_bases) >2)
 {
     $url_base='/'.$url_bases[1];
+}
+
+try 
+{
+
+}
+catch(\Exception $ex)
+{
+    var_dump($ex);
 }
 
 ?>
@@ -17,6 +26,7 @@ if(count($url_bases) >2)
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="format-detection" content="telephone=no">
+    <script src="https://www.mercadopago.com/v2/security.js" view="home"></script>
 
     <script
     src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -29,7 +39,7 @@ if(count($url_bases) >2)
 
     <link rel="stylesheet" href="./assets/merch-tools.css" media="screen, print">
 
-    <link rel="stylesheet" href="./assets/fonts" media="">
+    <!-- <link rel="stylesheet" href="./assets/fonts" media=""> -->
     <style>
         .as-filter-button-text {
             font-size: 26px;
