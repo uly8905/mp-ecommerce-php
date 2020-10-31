@@ -32,7 +32,7 @@
     // $linkbase='https://usosa-mp-ecommerce-php.herokuapp.com';
     $item1 = new MercadoPago\Item();
     $item1->id = "00001";
-    $item1->picture_url=$linkbase.str_replace('./','/',$_POST['img']);
+    $item1->picture_url=$linkbase.$url_base.str_replace('./','/',$_POST['img']);
     // $item1->picture_url=(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://".$_SERVER['HTTP_HOST'].$url_base. str_replace('./','/',$_POST['img']);
     $item1->title = $_POST['title']; 
     $item1->quantity = $_POST['unit'];

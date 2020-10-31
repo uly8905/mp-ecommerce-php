@@ -15,10 +15,9 @@ switch($_POST["type"]) {
     case "invoice":
         $plan = MercadoPago\Invoice.find_by_id($_POST["id"]);
         break;
-
-    echo '<pre>'; 
-    var_dump($payment);
-    var_dump($plan);
-    echo'</pre>';
 }
+    echo '<pre>'; 
+    var_dump(isset($payment)?$payment:'');
+    var_dump(isset($plan)?$plan:'');
+    echo'</pre>';
 ?>
