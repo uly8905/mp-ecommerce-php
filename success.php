@@ -63,14 +63,85 @@ $url = $linkbase.$url_base.'/index.php';
 
 
 <body class="as-theme-light-heroimage">
-    <div class="stack">
-        <h2> <?= $mensaje?></h2>
-        <li><span>Id Metodo de pago: </span><?= isset($_GET['payment_method_id'])?$_GET['payment_method_id']:''?></li>
-        <li><span>Referencia Externa: </span><?= isset($_GET['external_reference'])?$_GET['external_reference']:''?></li>
-        <li><span>Número de pago: </span><?= isset($_GET['payment_id'])?$_GET['payment_id']:''?></li>
-        <li><span>Colleción de pago: </span><?= isset($_GET['collection_id'])?$_GET['collection_id']:''?></li>
-        <a class="btn btn-success" href="<?= $url?>">Comprar otro equipo</a>
-    </div>
-    
+<div class="stack">
+        
+        <div class="as-search-wrapper" role="main">
+            <div class="as-navtuck-wrapper">
+                <div class="as-l-fullwidth  as-navtuck" data-events="event52">
+                    <div>
+                        <div class="pd-billboard pd-category-header">
+                            <div class="pd-l-plate-scale">
+                                <div class="pd-billboard-background">
+                                    <img src="./assets/music-audio-alp-201709" alt="" width="1440" height="320" data-scale-params-2="wid=2880&amp;hei=640&amp;fmt=jpeg&amp;qlt=95&amp;op_usm=0.5,0.5&amp;.v=1503948581306" class="pd-billboard-hero ir">
+                                </div>
+                                <div class="pd-billboard-info">
+                                    <h1 class="pd-billboard-header pd-util-compact-small-18">Tienda e-commerce</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="as-search-results as-filter-open as-category-landing as-desktop" id="as-search-results">
+
+                <div id="accessories-tab" class="as-accessories-details">
+                    <div class="as-accessories" id="as-accessories">
+                        <div class="as-accessories-header">
+                            <div class="as-search-results-count">
+                                <span class="as-search-results-value"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="container">
+                        <div class="as-searchnav-placeholder" style="height: 77px;">
+                            <div class="row as-search-navbar" id="as-search-navbar" style="width: auto;">
+                                <div class="as-accessories-filter-tile column large-6 small-3">
+
+                                    <a href='<?=$index?>' class="as-filter-button" aria-expanded="true" aria-controls="as-search-filters" type="button">
+                                        <h2 class=" as-filter-button-text">
+                                            Smartphones
+                                        </h2>
+                                    </a>
+
+
+                                </div>
+
+                            </div>
+                        </div></div>
+                            <div class="container">
+                            <div class="panel panel-success">
+                                  <div class="panel-heading">
+                                        <h3 class="panel-title"><?= $mensaje?></h3>
+                                  </div>
+                                  <div class="panel-body">
+                                    <li><span>collection_id: </span><label><?= isset($_GET['collection_id'])?$_GET['collection_id']:''?></label></li>
+                                    <li><span>collection_status: </span><label><?= isset($_GET['collection_status'])?$_GET['collection_status']:''?></label></li>
+                                    <li><span>payment_id: </span><label><?= isset($_GET['payment_id'])?$_GET['payment_id']:''?></label></li>
+                                    <li><span>status: </span><label><?= isset($_GET['status'])?$_GET['status']:''?></label></li>
+                                    <li><span>external_reference: </span><label><?= isset($_GET['external_reference'])?$_GET['external_reference']:''?></label></li>
+                                    <li><span>payment_type: </span><label><?= isset($_GET['payment_type'])?$_GET['payment_type']:''?></label></li>
+                                    <li><span>merchant_order: </span><label><?= isset($_GET['merchant_order'])?$_GET['merchant_order']:''?></label></li>
+                                    <li><span>preference_id: </span><label><?= isset($_GET['preference_id'])?$_GET['preference_id']:''?></label></li>
+                                    <li><span>site_id: </span><label><?= isset($_GET['site_id'])?$_GET['site_id']:''?></li>
+                                    <li><span>processing_mode: </span><label><?= isset($_GET['processing_mode'])?$_GET['processing_mode']:''?></label></li>
+                                    <a class="btn btn-success" href="<?= $url?>">Comprar otro equipo</a>
+                                  </div>
+                            </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div role="alert" class="as-loader-text ally" aria-live="assertive"></div>
+        <div class="as-footnotes">
+            <div class="as-footnotes-content">
+                <div class="as-footnotes-sosumi">
+                    Todos los derechos reservados Tienda Tecno 2020
+                </div>
+            </div>
+        </div>
+
+</div>
+<div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div class="mp-mercadopago-checkout-wrapper" style="z-index:-2147483647;display:block;background:rgba(0, 0, 0, 0.7);border:0;overflow:hidden;visibility:hidden;margin:0;padding:0;position:fixed;left:0;top:0;width:0;opacity:0;height:0;transition:opacity 220ms ease-in;"> <svg class="mp-spinner" viewBox="25 25 50 50"> <circle class="mp-spinner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle> </svg> </div><div id="ac-gn-viewport-emitter"> </div>
 </body>
 </html>

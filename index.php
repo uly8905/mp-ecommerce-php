@@ -575,7 +575,7 @@ catch(\Exception $ex)
         <div class="as-footnotes ">
             <div class="as-footnotes-content">
                 <div class="as-footnotes-sosumi">
-                    Todos los derechos reservados Tienda Tecno by usosa 2018
+                    Todos los derechos reservados Tienda Tecno 2020
                 </div>
             </div>
         </div>

@@ -220,7 +220,6 @@
                                         src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
                                         data-preference-id="<?php echo $preference->id; ?>" data-button-label="Pagar la compra">
                                     </script>
-                                    <a href="<?=$preference->init_point?>">Realizar Pago</a>
                                 </div>
                             </div>
                         </div>
@@ -232,7 +231,7 @@
         <div class="as-footnotes">
             <div class="as-footnotes-content">
                 <div class="as-footnotes-sosumi">
-                    Todos los derechos reservados Tienda Tecno 2019
+                    Todos los derechos reservados Tienda Tecno 2020
                 </div>
             </div>
         </div>
