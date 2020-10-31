@@ -17,16 +17,35 @@ switch($_POST["type"]) {
         break;
 }
     session_start();
+    $msg="";
     if(isset($payment))
     {
         $_SESSION["notificacion_pay"]=$payment;
-        $myfile = fopen("notificacion_pay.txt", $payment);
+        $msg = $payment;
     }
     if(isset($plan))
     {
         $_SESSION["notificacion_plan"]=$plan;
-        $myfile = fopen("notificacion_plan.txt", $plan);
+        $msg = $plan;
     }
+
+    $transport = (new \Swift_SmtpTransport('smtp.gmail.com', 465, 'SSL'))
+        ->setUsername('ush.sosa@gmail.com')
+        ->setPassword('mpdnqwwxuxggzuxq')
+        ;
+
+        // Create the Mailer using your created Transport
+        $mailer = new \Swift_Mailer($transport);
+
+        // Create a message
+        $message = (new \Swift_Message('notificacion mercadopago'))
+        ->setFrom(['ush.sosa@gmail.com'=>'Ulises Sosa'])
+        ->setTo('ush.sosa@gmail.com')
+        ->setBody($msg)
+        ;
+
+        // Send the message
+        $result = $mailer->send($message);
     // echo '<pre>'; 
     // var_dump(isset($payment)?$payment:'');
     // var_dump(isset($plan)?$plan:'');
