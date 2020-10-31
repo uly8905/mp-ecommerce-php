@@ -5,7 +5,7 @@ if(count($url_bases) >2)
 {
     $url_base='/'.$url_bases[1];
 }
-$mensaje= '1Oh! algo salió mal...';
+$mensaje= '!Oh! algo salió mal...';
 $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://".$_SERVER['HTTP_HOST'].$url_base.'/index.php';
 ?>
 

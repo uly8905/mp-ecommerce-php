@@ -53,7 +53,7 @@
     ];
     $preference->payer=(object)$payer;
     $preference->back_urls=$backUrl;
-    $preference->notification_url=$baseback.'/ipn.php';
+    $preference->notification_url=$baseback.'/ipn.php?source_news=webhooks';
     $preference->auto_return='approved';
     $preference->payment_methods = [
         'excluded_payment_methods' => [["id" => "amex"]],

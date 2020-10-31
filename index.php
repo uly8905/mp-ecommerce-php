@@ -1,5 +1,5 @@
 <?php
-echo $_SERVER['REQUEST_URI'];
+// echo $_SERVER['REQUEST_URI'];
 $url_bases = explode('/', $_SERVER['REQUEST_URI']);
 $url_base='';
 if(count($url_bases) >2)
