@@ -38,11 +38,11 @@ switch($_POST["type"]) {
         $mailer = new \Swift_Mailer($transport);
 
         // Create a message
+        $post=json_encode($_POST);
         $message = (new \Swift_Message('notificacion mercadopago'))
         ->setFrom(['ush.sosa@gmail.com'=>'Ulises Sosa'])
         ->setTo('ush.sosa@gmail.com')
-        ->setBody($msg)
-        ;
+        ->setBody($msg.$post,'text/html');
 
         // Send the message
         $result = $mailer->send($message);
