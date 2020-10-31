@@ -1,6 +1,13 @@
 <?php
 require_once 'vendor/autoload.php'; 
 
+$json_encode='';
+if($json = json_decode(file_get_contents("php://input"), true)) {
+    $json_encode = file_get_contents("php://input");
+    // $data = $json;
+}
+
+
 MercadoPago\SDK::setAccessToken('APP_USR-1159009372558727-072921-8d0b9980c7494985a5abd19fbe921a3d-617633181');
 
 switch($_POST["type"]) {
@@ -17,18 +24,18 @@ switch($_POST["type"]) {
         $plan = MercadoPago\Invoice.find_by_id($_POST["id"]);
         break;
 }
-    session_start();
+    // session_start();
     $msg="";
-    if(isset($payment))
+    if(!empty($json_encode))
     {
-        $_SESSION["notificacion_pay"]=$payment;
-        $msg = $payment;
+        // $_SESSION["notificacion_pay"]=$payment;
+        $msg = $json_encode;
     }
-    if(isset($plan))
-    {
-        $_SESSION["notificacion_plan"]=$plan;
-        $msg = $plan;
-    }
+    // if(isset($plan))
+    // {
+    //     $_SESSION["notificacion_plan"]=$plan;
+    //     $msg = $plan;
+    // }
 
     $transport = (new \Swift_SmtpTransport('smtp.gmail.com', 465, 'SSL'))
         ->setUsername('ush.sosa@gmail.com')
