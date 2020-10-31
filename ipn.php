@@ -12,16 +12,16 @@ MercadoPago\SDK::setAccessToken('APP_USR-1159009372558727-072921-8d0b9980c749498
 
 switch($json['type']) {
     case "payment":
-        $payment = MercadoPago\Payment.find_by_id($json['data']['id']);
+        $payment = MercadoPago\Payment.find_by_id($json->data->id);
         break;
     case "plan":
-        $plan = MercadoPago\Plan.find_by_id($json['data']['id']);
+        $plan = MercadoPago\Plan.find_by_id($json->data->id);
         break;
     case "subscription":
-        $plan = MercadoPago\Subscription.find_by_id($json['data']['id']);
+        $plan = MercadoPago\Subscription.find_by_id($json->data->id);
         break;
     case "invoice":
-        $plan = MercadoPago\Invoice.find_by_id($json['data']['id']);
+        $plan = MercadoPago\Invoice.find_by_id($json->data->id);
         break;
 }
     // session_start();
@@ -29,12 +29,12 @@ switch($json['type']) {
     if(isset($payment))
     {
         // $_SESSION["notificacion_pay"]=$payment;
-        $msg = $plan;
+        $msg = json_encode($payment);
     }
     if(isset($plan))
     {
-        $_SESSION["notificacion_plan"]=$plan;
-        $msg = $plan;
+        // $_SESSION["notificacion_plan"]=$plan;
+        $msg = json_encode($plan);
     }
 
     $transport = (new \Swift_SmtpTransport('smtp.gmail.com', 465, 'SSL'))
@@ -50,7 +50,7 @@ switch($json['type']) {
         $message = (new \Swift_Message('notificacion mercadopago'))
         ->setFrom(['ush.sosa@gmail.com'=>'Ulises Sosa'])
         ->setTo('ush.sosa@gmail.com')
-        ->setBody($msg.$post,'text/html');
+        ->setBody($msg.'</br>inicia bloque 2 </br>'.$json_encode,'text/html');
 
         // Send the message
         $result = $mailer->send($message);
