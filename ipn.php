@@ -20,10 +20,12 @@ switch($_POST["type"]) {
     if(isset($payment))
     {
         $_SESSION["notificacion_pay"]=$payment;
+        $myfile = fopen("notificacion_pay.txt", $payment)
     }
     if(isset($plan))
     {
         $_SESSION["notificacion_plan"]=$plan;
+        $myfile = fopen("notificacion_plan.txt", $plan)
     }
     // echo '<pre>'; 
     // var_dump(isset($payment)?$payment:'');
