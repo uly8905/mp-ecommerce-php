@@ -220,6 +220,7 @@
                                         src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
                                         data-preference-id="<?php echo $preference->id; ?>" data-button-label="Pagar la compra">
                                     </script>
+                                    <a href="<?=$preference->init_point?>">Realizar Pago</a>
                                 </div>
                             </div>
                         </div>
