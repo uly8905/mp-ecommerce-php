@@ -6,9 +6,10 @@
     {
         $url_base='/'.$url_bases[1];
     }
+    $index=(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://".$_SERVER['HTTP_HOST'].$url_base.'/index.php';
     if(empty($_POST))
     {
-     header("Location: ".(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://".$_SERVER['HTTP_HOST'].$url_base.'/index.php');
+     header("Location: ".$index);
      exit;
     }
     // Agrega credenciales
@@ -39,7 +40,7 @@
     $payer=[
         'name'=>'Lalo',
         'surname'=>'Landa',
-        'email'=>'test_user_58295862@testuser.com',
+        'email'=>'test_user_81131286@testuser.com',
         'phone'=>[
             'area_code'=>'52',
             'number'=>'5549737300'
@@ -52,12 +53,10 @@
     ];
     $preference->payer=(object)$payer;
     $preference->back_urls=$backUrl;
-    // $preference->notification_url=$baseback.'/ipn.php';
+    $preference->notification_url=$baseback.'/ipn.php';
     $preference->auto_return='approved';
     $preference->payment_methods = [
-        'excluded_payment_methods' => [
-            ["id" => "amex"]
-        ],
+        'excluded_payment_methods' => [["id" => "amex"]],
         'excluded_payment_types'=>[['id'=>'atm']],
         'installments' => 6,
         'default_installments'=> 6 
@@ -153,11 +152,11 @@
                             <div class="row as-search-navbar" id="as-search-navbar" style="width: auto;">
                                 <div class="as-accessories-filter-tile column large-6 small-3">
 
-                                    <button class="as-filter-button" aria-expanded="true" aria-controls="as-search-filters" type="button">
+                                    <a href='<?=$index?>' class="as-filter-button" aria-expanded="true" aria-controls="as-search-filters" type="button">
                                         <h2 class=" as-filter-button-text">
                                             Smartphones
                                         </h2>
-                                    </button>
+                                    </a>
 
 
                                 </div>
@@ -196,23 +195,23 @@
                                         <div class="as-producttile-title">
                                             <h3 class="as-producttile-name">
                                                 <p class="as-producttile-tilelink">
-                                                    <span data-ase-truncate="2"><?php echo $_POST['title'] ?></span>
+                                                    <span data-ase-truncate="2">Producto: <?php echo $_POST['title'] ?></span>
                                                 </p>
 
                                             </h3>
                                         </div>
                                         <h3 >
-                                            <?php echo "$" . $_POST['price'] ?>
+                                            <?php echo "Precio: $" . $_POST['price'] ?>
                                         </h3>
                                         <h3 >
-                                            <?php echo $_POST['unit'] ?>
+                                            <?php echo 'Cantidad: '. $_POST['unit'] ?>
                                         </h3>
                                     </div>
                                     <script
                                         src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
                                         data-preference-id="<?php echo $preference->id; ?>" data-button-label="Pagar la compra">
                                     </script>
-                                    <a href="<?php echo $preference->sandbox_init_point; ?>">Pagar con Mercado Pago</a>
+                                    <!-- <a href="<?php echo $preference->sandbox_init_point; ?>">Pagar con Mercado Pago</a> -->
                                     <!-- <span class="btn btn-info"  data-toggle="modal" data-target="#myModal">Pagar la compra</span> -->
                                 </div>
                             </div>

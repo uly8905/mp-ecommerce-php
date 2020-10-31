@@ -32,7 +32,7 @@ $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http
 
     <link rel="stylesheet" href="./assets/merch-tools.css" media="screen, print">
 
-    <link rel="stylesheet" href="./assets/fonts" media="">
+    <!-- <link rel="stylesheet" href="./assets/fonts" media=""> -->
     <style>
         .as-filter-button-text {
             font-size: 26px;
@@ -58,6 +58,10 @@ $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http
 <body class="as-theme-light-heroimage">
     <div class="stack">
         <h2> <?= $mensaje?></h2>
+        <li><span>Id Metodo de pago: </span><?= isset($_GET['payment_method_id'])?$_GET['payment_method_id']:''?></li>
+        <li><span>Referencia Externa: </span><?= isset($_GET['external_reference'])?$_GET['external_reference']:''?></li>
+        <li><span>Número de pago: </span><?= isset($_GET['payment_id'])?$_GET['payment_id']:''?></li>
+        <li><span>Colleción de pago: </span><?= isset($_GET['collection_id'])?$_GET['collection_id']:''?></li>
         <a class="btn btn-success" href="<?= $url?>">Comprar otro equipo</a>
     </div>
     
