@@ -2,11 +2,19 @@
     require_once 'vendor/autoload.php'; 
     $url_bases = explode('/', $_SERVER['REQUEST_URI']);
     $url_base='';
+    if($_SERVER['HTTP_HOST']=='localhost')
+    {
+        $linkbase='http://localhost';
+    }else
+    {
+        $linkbase='https://usosa-mp-ecommerce-php.herokuapp.com';
+    }
     if(count($url_bases) >2)
     {
         $url_base='/'.$url_bases[1];
     }
-    $index=(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://".$_SERVER['HTTP_HOST'].$url_base.'/index.php';
+    // $index=(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://".$_SERVER['HTTP_HOST'].$url_base.'/index.php';
+    $index=$linkbase.$url_base.'/index.php';
     if(empty($_POST))
     {
      header("Location: ".$index);
@@ -21,7 +29,7 @@
     $preference = new MercadoPago\Preference();
     
     # Building an item
-    $linkbase='https://usosa-mp-ecommerce-php.herokuapp.com';
+    // $linkbase='https://usosa-mp-ecommerce-php.herokuapp.com';
     $item1 = new MercadoPago\Item();
     $item1->id = "00001";
     $item1->picture_url=$linkbase.str_replace('./','/',$_POST['img']);
@@ -30,7 +38,7 @@
     $item1->quantity = $_POST['unit'];
     $item1->unit_price = $_POST['price'];
     $preference->items = [$item1];
-    $baseback=(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://".$_SERVER['HTTP_HOST'].$url_base;
+    $baseback=$linkbase.$url_base;
     $backUrl=[
         'success'=>$baseback.'/success.php',
         'failure'=>$baseback.'/error.php',
@@ -53,7 +61,7 @@
     ];
     $preference->payer=(object)$payer;
     $preference->back_urls=$backUrl;
-    $preference->notification_url=$baseback.'/ipn.php?source_news=webhooks';
+    $preference->notification_url=$baseback.$url_base.'/ipn.php?source_news=webhooks';
     $preference->auto_return='approved';
     $preference->payment_methods = [
         'excluded_payment_methods' => [["id" => "amex"]],
