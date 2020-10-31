@@ -9,7 +9,7 @@ if($json = json_decode(file_get_contents("php://input"), true)) {
 
 
 MercadoPago\SDK::setAccessToken('APP_USR-1159009372558727-072921-8d0b9980c7494985a5abd19fbe921a3d-617633181');
-
+try{
 switch($json['type']) {
     case "payment":
         $payment = MercadoPago\Payment.find_by_id($json->data->id);
@@ -36,6 +36,10 @@ switch($json['type']) {
         // $_SESSION["notificacion_plan"]=$plan;
         $msg = json_encode($plan);
     }
+}catch(\Exception $ex)
+{
+    $msg=$ex;
+}
 
     $transport = (new \Swift_SmtpTransport('smtp.gmail.com', 465, 'SSL'))
         ->setUsername('ush.sosa@gmail.com')
@@ -54,6 +58,7 @@ switch($json['type']) {
 
         // Send the message
         $result = $mailer->send($message);
+
     // echo '<pre>'; 
     // var_dump(isset($payment)?$payment:'');
     // var_dump(isset($plan)?$plan:'');
