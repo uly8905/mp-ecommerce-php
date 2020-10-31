@@ -21,8 +21,8 @@
      exit;
     }
     // Agrega credenciales
-    MercadoPago\SDK::setAccessToken('APP_USR-8058997674329963-062418-89271e2424bb1955bc05b1d7dd0977a8-592190948');
-    MercadoPago\SDK::setPublicKey('APP_USR-158fff95-0bdf-4149-9abc-c8b0ac7f289f');
+    MercadoPago\SDK::setAccessToken('APP_USR-1159009372558727-072921-8d0b9980c7494985a5abd19fbe921a3d-617633181');
+    MercadoPago\SDK::setPublicKey('APP_USR-d81f7be9-ee11-4ff0-bf4e-20c36981d7bf');
     MercadoPago\SDK::setIntegratorId('dev_24c65fb163bf11ea96500242ac130004');
 
     // Crea un objeto de preferencia
@@ -46,6 +46,7 @@
 
     ];
     $payer=[
+        'id'=>'655253974',
         'name'=>'Lalo',
         'surname'=>'Landa',
         'email'=>'test_user_81131286@testuser.com',
@@ -219,8 +220,6 @@
                                         src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
                                         data-preference-id="<?php echo $preference->id; ?>" data-button-label="Pagar la compra">
                                     </script>
-                                    <!-- <a href="<?php echo $preference->sandbox_init_point; ?>">Pagar con Mercado Pago</a> -->
-                                    <!-- <span class="btn btn-info"  data-toggle="modal" data-target="#myModal">Pagar la compra</span> -->
                                 </div>
                             </div>
                         </div>
