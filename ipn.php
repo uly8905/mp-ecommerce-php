@@ -16,8 +16,17 @@ switch($_POST["type"]) {
         $plan = MercadoPago\Invoice.find_by_id($_POST["id"]);
         break;
 }
-    echo '<pre>'; 
-    var_dump(isset($payment)?$payment:'');
-    var_dump(isset($plan)?$plan:'');
-    echo'</pre>';
+    session_start();
+    if(isset($payment))
+    {
+        $_SESSION["notificacion_pay"]=$payment;
+    }
+    if(isset($plan))
+    {
+        $_SESSION["notificacion_plan"]=$plan;
+    }
+    // echo '<pre>'; 
+    // var_dump(isset($payment)?$payment:'');
+    // var_dump(isset($plan)?$plan:'');
+    // echo'</pre>';
 ?>
