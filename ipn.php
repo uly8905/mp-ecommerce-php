@@ -10,32 +10,32 @@ if($json = json_decode(file_get_contents("php://input"), true)) {
 
 MercadoPago\SDK::setAccessToken('APP_USR-1159009372558727-072921-8d0b9980c7494985a5abd19fbe921a3d-617633181');
 
-switch($_POST["type"]) {
+switch($json['type']) {
     case "payment":
-        $payment = MercadoPago\Payment.find_by_id($_POST["id"]);
+        $payment = MercadoPago\Payment.find_by_id($json['data']['id']);
         break;
     case "plan":
-        $plan = MercadoPago\Plan.find_by_id($_POST["id"]);
+        $plan = MercadoPago\Plan.find_by_id($json['data']['id']);
         break;
     case "subscription":
-        $plan = MercadoPago\Subscription.find_by_id($_POST["id"]);
+        $plan = MercadoPago\Subscription.find_by_id($json['data']['id']);
         break;
     case "invoice":
-        $plan = MercadoPago\Invoice.find_by_id($_POST["id"]);
+        $plan = MercadoPago\Invoice.find_by_id($json['data']['id']);
         break;
 }
     // session_start();
     $msg="";
-    if(!empty($json_encode))
+    if(isset($payment))
     {
         // $_SESSION["notificacion_pay"]=$payment;
-        $msg = $json_encode;
+        $msg = $plan;
     }
-    // if(isset($plan))
-    // {
-    //     $_SESSION["notificacion_plan"]=$plan;
-    //     $msg = $plan;
-    // }
+    if(isset($plan))
+    {
+        $_SESSION["notificacion_plan"]=$plan;
+        $msg = $plan;
+    }
 
     $transport = (new \Swift_SmtpTransport('smtp.gmail.com', 465, 'SSL'))
         ->setUsername('ush.sosa@gmail.com')
