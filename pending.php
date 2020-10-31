@@ -5,8 +5,15 @@ if(count($url_bases) >2)
 {
     $url_base='/'.$url_bases[1];
 }
+if($_SERVER['HTTP_HOST']=='localhost')
+{
+    $linkbase='http://localhost';
+}else
+{
+    $linkbase='https://usosa-mp-ecommerce-php.herokuapp.com';
+}
 $mensaje= 'El pago se encuentra en proceso.';
-$url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://".$_SERVER['HTTP_HOST'].$url_base.'/index.php';
+$url = $linkbase.$url_base.'/index.php';
 ?>
 
 <!DOCTYPE html>
